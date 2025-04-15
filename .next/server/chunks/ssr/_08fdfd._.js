@@ -15,7 +15,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 ;
 const Buy = ()=>{
-    const products = [
+    const [products, setProducts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["useState"])([
         {
             id: 1,
             name: "Product 1",
@@ -34,98 +34,207 @@ const Buy = ()=>{
             price: 19000,
             image: ""
         }
-    ];
-    const ProductCard = ({ product })=>{
-        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            style: styles.card,
+    ]);
+    const [isModalOpen, setIsModalOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [newProduct, setNewProduct] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["useState"])({
+        name: "",
+        price: "",
+        description: ""
+    });
+    const handleAddProduct = ()=>{
+        const newId = products.length + 1;
+        const productToAdd = {
+            id: newId,
+            name: newProduct.name,
+            price: Number(newProduct.price),
+            description: newProduct.description,
+            image: ""
+        };
+        setProducts([
+            ...products,
+            productToAdd
+        ]);
+        setNewProduct({
+            name: "",
+            price: "",
+            description: ""
+        });
+        setIsModalOpen(false);
+    };
+    const ProductCard = ({ product })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "bg-white shadow-md rounded-lg p-4 w-full sm:w-64",
             children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                    src: product.image,
-                    alt: product.name,
-                    style: styles.image
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "h-40 bg-gray-100 rounded mb-4"
                 }, void 0, false, {
                     fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                    lineNumber: 30,
-                    columnNumber: 9
+                    lineNumber: 34,
+                    columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                    style: styles.name,
+                    className: "text-lg font-semibold mb-1",
                     children: product.name
                 }, void 0, false, {
                     fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                    lineNumber: 31,
-                    columnNumber: 9
+                    lineNumber: 35,
+                    columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    style: styles.price,
+                    className: "text-gray-700 mb-2",
                     children: [
                         "$",
                         product.price
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                    lineNumber: 32,
-                    columnNumber: 9
+                    lineNumber: 36,
+                    columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                     href: `/sample?amount=${product.price}`,
+                    className: "text-blue-600 hover:underline",
                     children: "Buy"
                 }, void 0, false, {
                     fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                    lineNumber: 33,
-                    columnNumber: 9
+                    lineNumber: 37,
+                    columnNumber: 7
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-            lineNumber: 29,
-            columnNumber: 7
+            lineNumber: 33,
+            columnNumber: 5
         }, this);
-    };
-    const styles = {
-        card: {
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            width: "200px",
-            padding: "10px",
-            textAlign: "center",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-            margin: "10px"
-        },
-        image: {
-            width: "100%",
-            height: "150px",
-            objectFit: "cover",
-            borderRadius: "8px"
-        },
-        name: {
-            fontSize: "18px",
-            fontWeight: "bold",
-            margin: "10px 0"
-        },
-        price: {
-            fontSize: "16px",
-            color: "white"
-        },
-        container: {
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            padding: "20px"
-        }
-    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        style: styles.container,
-        children: products.map((product)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(ProductCard, {
-                product: product
-            }, product.id, false, {
+        className: "p-4",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex justify-center mb-6",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                    onClick: ()=>setIsModalOpen(true),
+                    className: "bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded",
+                    children: "Add Product"
+                }, void 0, false, {
+                    fileName: "[project]/src/app/(frontend)/buy/page.jsx",
+                    lineNumber: 50,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
                 fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                lineNumber: 74,
+                lineNumber: 49,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex flex-wrap gap-4 justify-center",
+                children: products.map((product)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(ProductCard, {
+                        product: product
+                    }, product.id, false, {
+                        fileName: "[project]/src/app/(frontend)/buy/page.jsx",
+                        lineNumber: 61,
+                        columnNumber: 11
+                    }, this))
+            }, void 0, false, {
+                fileName: "[project]/src/app/(frontend)/buy/page.jsx",
+                lineNumber: 59,
+                columnNumber: 7
+            }, this),
+            isModalOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "bg-white rounded-lg p-6 w-80 shadow-lg",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            className: "text-xl font-bold mb-4",
+                            children: "Add New Product"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/(frontend)/buy/page.jsx",
+                            lineNumber: 69,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                            type: "text",
+                            placeholder: "Product Name",
+                            value: newProduct.name,
+                            onChange: (e)=>setNewProduct({
+                                    ...newProduct,
+                                    name: e.target.value
+                                }),
+                            className: "w-full mb-3 px-3 py-2 border rounded focus:outline-none focus:ring"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/(frontend)/buy/page.jsx",
+                            lineNumber: 71,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                            type: "number",
+                            placeholder: "Price",
+                            value: newProduct.price,
+                            onChange: (e)=>setNewProduct({
+                                    ...newProduct,
+                                    price: e.target.value
+                                }),
+                            className: "w-full mb-3 px-3 py-2 border rounded focus:outline-none focus:ring"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/(frontend)/buy/page.jsx",
+                            lineNumber: 81,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                            type: "text",
+                            placeholder: "Description",
+                            value: newProduct.description,
+                            onChange: (e)=>setNewProduct({
+                                    ...newProduct,
+                                    description: e.target.value
+                                }),
+                            className: "w-full mb-4 px-3 py-2 border rounded focus:outline-none focus:ring"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/(frontend)/buy/page.jsx",
+                            lineNumber: 91,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex justify-between",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: handleAddProduct,
+                                    className: "bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded",
+                                    children: "Add"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/(frontend)/buy/page.jsx",
+                                    lineNumber: 102,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: ()=>setIsModalOpen(false),
+                                    className: "bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded",
+                                    children: "Cancel"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/(frontend)/buy/page.jsx",
+                                    lineNumber: 108,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/app/(frontend)/buy/page.jsx",
+                            lineNumber: 101,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/(frontend)/buy/page.jsx",
+                    lineNumber: 68,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/app/(frontend)/buy/page.jsx",
+                lineNumber: 67,
                 columnNumber: 9
-            }, this))
-    }, void 0, false, {
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-        lineNumber: 72,
+        lineNumber: 47,
         columnNumber: 5
     }, this);
 };

@@ -9,9 +9,23 @@ if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
 }
 
 const Home = () => {
+  const [amount, setAmount] = useState("");
+  const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
-  const amount = searchParams.get("amount");
+  const id = searchParams.get("id");
 
+  useEffect(() => {
+    setLoading(true);
+    const fetchRecord = async () => {
+      const resp = await axios.get(`/api/show-single?id=${id}`);
+      console.log(resp);
+
+      setAmount(resp.data.data);
+      setLoading(false);
+    };
+    fetchRecord();
+  }, [id]);
+  console.log("amount is ", amount);
   const [secret, setSecret] = useState("");
   const [message, setMessage] = useState("");
 
@@ -19,7 +33,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchPaymentIntent = async () => {
-      // if (!amount) return;
+      if (!amount) return;
 
       try {
         const response = await axios(
@@ -44,7 +58,11 @@ const Home = () => {
     };
 
     fetchPaymentIntent();
-  }, []);
+  }, [amount]);
+
+  if (loading) {
+    return <h1 className="text-center text-lg mt-10">Loading...</h1>;
+  }
 
   if (!amount) {
     return <h1>Amount not found!</h1>;

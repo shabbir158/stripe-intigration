@@ -164,8 +164,27 @@ if (("TURBOPACK compile-time value", "pk_test_51R6quaP3g8X475oDt9Pk0m8LA64DKrhRi
 }
 const Home = ()=>{
     _s();
+    const [amount, setAmount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSearchParams"])();
-    const amount = searchParams.get("amount");
+    const id = searchParams.get("id");
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "Home.useEffect": ()=>{
+            setLoading(true);
+            const fetchRecord = {
+                "Home.useEffect.fetchRecord": async ()=>{
+                    const resp = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get(`/api/show-single?id=${id}`);
+                    console.log(resp);
+                    setAmount(resp.data.data);
+                    setLoading(false);
+                }
+            }["Home.useEffect.fetchRecord"];
+            fetchRecord();
+        }
+    }["Home.useEffect"], [
+        id
+    ]);
+    console.log("amount is ", amount);
     const [secret, setSecret] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [message, setMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const stripePK = ("TURBOPACK compile-time value", "pk_test_51R6quaP3g8X475oDt9Pk0m8LA64DKrhRiNrAaCiS7Ao1yqiglg52tYFyXMdhr1EwPDFncLFCKVbqUY2ZmwyWAeHa00VK7At2i2");
@@ -173,7 +192,7 @@ const Home = ()=>{
         "Home.useEffect": ()=>{
             const fetchPaymentIntent = {
                 "Home.useEffect.fetchPaymentIntent": async ()=>{
-                    // if (!amount) return;
+                    if (!amount) return;
                     try {
                         const response = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(`http://localhost:3002/api/create-payment-intent`, {
                             method: "POST",
@@ -194,13 +213,25 @@ const Home = ()=>{
             }["Home.useEffect.fetchPaymentIntent"];
             fetchPaymentIntent();
         }
-    }["Home.useEffect"], []);
+    }["Home.useEffect"], [
+        amount
+    ]);
+    if (loading) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+            className: "text-center text-lg mt-10",
+            children: "Loading..."
+        }, void 0, false, {
+            fileName: "[project]/src/app/(frontend)/sample/page.jsx",
+            lineNumber: 64,
+            columnNumber: 12
+        }, this);
+    }
     if (!amount) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
             children: "Amount not found!"
         }, void 0, false, {
             fileName: "[project]/src/app/(frontend)/sample/page.jsx",
-            lineNumber: 50,
+            lineNumber: 68,
             columnNumber: 12
         }, this);
     }
@@ -213,12 +244,12 @@ const Home = ()=>{
             message: message
         }, void 0, false, {
             fileName: "[project]/src/app/(frontend)/sample/page.jsx",
-            lineNumber: 55,
+            lineNumber: 73,
             columnNumber: 7
         }, this)
     }, void 0, false);
 };
-_s(Home, "hOLK1GOLHn9MhfEHaDMTNtQ3fmo=", false, function() {
+_s(Home, "AAUjDv+sWax9GbwYALFR7eFlBQY=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSearchParams"]
     ];

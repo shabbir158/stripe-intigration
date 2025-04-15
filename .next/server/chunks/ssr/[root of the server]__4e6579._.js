@@ -269,14 +269,29 @@ if (("TURBOPACK compile-time value", "pk_test_51R6quaP3g8X475oDt9Pk0m8LA64DKrhRi
     throw new Error("NEXT_PUBLIC_STRIPE_PUBLIC_KEY is not defined");
 }
 const Home = ()=>{
+    const [amount, setAmount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSearchParams"])();
-    const amount = searchParams.get("amount");
+    const id = searchParams.get("id");
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        setLoading(true);
+        const fetchRecord = async ()=>{
+            const resp = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get(`/api/show-single?id=${id}`);
+            console.log(resp);
+            setAmount(resp.data.data);
+            setLoading(false);
+        };
+        fetchRecord();
+    }, [
+        id
+    ]);
+    console.log("amount is ", amount);
     const [secret, setSecret] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [message, setMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const stripePK = ("TURBOPACK compile-time value", "pk_test_51R6quaP3g8X475oDt9Pk0m8LA64DKrhRiNrAaCiS7Ao1yqiglg52tYFyXMdhr1EwPDFncLFCKVbqUY2ZmwyWAeHa00VK7At2i2");
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const fetchPaymentIntent = async ()=>{
-            // if (!amount) return;
+            if (!amount) return;
             try {
                 const response = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])(`http://localhost:3002/api/create-payment-intent`, {
                     method: "POST",
@@ -295,13 +310,25 @@ const Home = ()=>{
             }
         };
         fetchPaymentIntent();
-    }, []);
+    }, [
+        amount
+    ]);
+    if (loading) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+            className: "text-center text-lg mt-10",
+            children: "Loading..."
+        }, void 0, false, {
+            fileName: "[project]/src/app/(frontend)/sample/page.jsx",
+            lineNumber: 64,
+            columnNumber: 12
+        }, this);
+    }
     if (!amount) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
             children: "Amount not found!"
         }, void 0, false, {
             fileName: "[project]/src/app/(frontend)/sample/page.jsx",
-            lineNumber: 50,
+            lineNumber: 68,
             columnNumber: 12
         }, this);
     }
@@ -314,7 +341,7 @@ const Home = ()=>{
             message: message
         }, void 0, false, {
             fileName: "[project]/src/app/(frontend)/sample/page.jsx",
-            lineNumber: 55,
+            lineNumber: 73,
             columnNumber: 7
         }, this)
     }, void 0, false);
