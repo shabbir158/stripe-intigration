@@ -126,8 +126,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$server$2f$mode
 ;
 const GET = async (req)=>{
     try {
-        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$server$2f$models$2f$addProduct$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])();
+        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$server$2f$mongoConnection$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])();
         const products = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$server$2f$models$2f$addProduct$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].find();
+        // products.forEach((product) => {
+        //   console.log("title is:", product.title);
+        // });
         if (!products) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
                 message: "Products are not availabe ",

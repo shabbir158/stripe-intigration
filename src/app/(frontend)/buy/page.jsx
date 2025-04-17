@@ -2,20 +2,25 @@
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import Loader from "../(loader)/page";
+import Image from "next/image";
 
 const Buy = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [title, setTitle] = useState("");
+  const [loading, setLoading] = useState(false);
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [products, setProducts] = useState([]);
   useEffect(() => {
+    setLoading(true);
     const fetcData = async () => {
       const resp = await axios.get("/api/show-product");
 
       if (resp.data.status == "200") {
         setProducts(resp.data.data);
+        setLoading(false);
       }
     };
     fetcData();
@@ -39,11 +44,21 @@ const Buy = () => {
       setIsModalOpen(false);
     }
   };
+  {
+    if (loading) return <Loader />;
+  }
 
   const ProductCard = ({ product }) => (
     <div className="bg-white shadow-md rounded-lg p-4 w-full sm:w-64">
-      <div className="h-40 bg-gray-100 rounded mb-4"></div>
-      <h3 className="text-lg font-semibold mb-1">{product.name}</h3>
+      <div className="h-40 bg-gray-100 rounded mb-4">
+        <img
+          src="https://m.media-amazon.com/images/I/71aXGgNCE9L._AC_SX425_.jpg"
+          alt=""
+          className="h-40 w-full object-cover rounded mb-4"
+        />
+      </div>
+      <h3 className="text-gray-700 font-semibold mb-1">{product.title}</h3>
+
       <p className="text-gray-700 mb-2">${product.price}</p>
       <Link
         href={`/sample?id=${product._id}`}

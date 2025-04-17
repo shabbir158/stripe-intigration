@@ -22,16 +22,19 @@ const Buy = ()=>{
     _s();
     const [isModalOpen, setIsModalOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [title, setTitle] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [price, setPrice] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [description, setDescription] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [products, setProducts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Buy.useEffect": ()=>{
+            setLoading(true);
             const fetcData = {
                 "Buy.useEffect.fetcData": async ()=>{
                     const resp = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get("/api/show-product");
                     if (resp.data.status == "200") {
                         setProducts(resp.data.data);
+                        setLoading(false);
                     }
                 }
             }["Buy.useEffect.fetcData"];
@@ -53,6 +56,15 @@ const Buy = ()=>{
             setIsModalOpen(false);
         }
     };
+    {
+        if (loading) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+            children: "loading...."
+        }, void 0, false, {
+            fileName: "[project]/src/app/(frontend)/buy/page.jsx",
+            lineNumber: 46,
+            columnNumber: 25
+        }, this);
+    }
     const ProductCard = ({ product })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "bg-white shadow-md rounded-lg p-4 w-full sm:w-64",
             children: [
@@ -60,7 +72,7 @@ const Buy = ()=>{
                     className: "h-40 bg-gray-100 rounded mb-4"
                 }, void 0, false, {
                     fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                    lineNumber: 45,
+                    lineNumber: 51,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -68,7 +80,7 @@ const Buy = ()=>{
                     children: product.name
                 }, void 0, false, {
                     fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                    lineNumber: 46,
+                    lineNumber: 52,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -79,7 +91,7 @@ const Buy = ()=>{
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                    lineNumber: 47,
+                    lineNumber: 53,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -88,13 +100,13 @@ const Buy = ()=>{
                     children: "Buy"
                 }, void 0, false, {
                     fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                    lineNumber: 48,
+                    lineNumber: 54,
                     columnNumber: 7
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-            lineNumber: 44,
+            lineNumber: 50,
             columnNumber: 5
         }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -108,12 +120,12 @@ const Buy = ()=>{
                     children: "Add Product"
                 }, void 0, false, {
                     fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                    lineNumber: 61,
+                    lineNumber: 67,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                lineNumber: 60,
+                lineNumber: 66,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -122,12 +134,12 @@ const Buy = ()=>{
                         product: product
                     }, product._id, false, {
                         fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                        lineNumber: 72,
+                        lineNumber: 78,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                lineNumber: 70,
+                lineNumber: 76,
                 columnNumber: 7
             }, this),
             isModalOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -140,7 +152,7 @@ const Buy = ()=>{
                             children: "Add New Product"
                         }, void 0, false, {
                             fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                            lineNumber: 80,
+                            lineNumber: 86,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -150,7 +162,7 @@ const Buy = ()=>{
                             className: "w-full mb-3 px-3 py-2 border rounded focus:outline-none focus:ring"
                         }, void 0, false, {
                             fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                            lineNumber: 82,
+                            lineNumber: 88,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -160,7 +172,7 @@ const Buy = ()=>{
                             className: "w-full mb-3 px-3 py-2 border rounded focus:outline-none focus:ring"
                         }, void 0, false, {
                             fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                            lineNumber: 89,
+                            lineNumber: 95,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -170,7 +182,7 @@ const Buy = ()=>{
                             className: "w-full mb-4 px-3 py-2 border rounded focus:outline-none focus:ring"
                         }, void 0, false, {
                             fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                            lineNumber: 96,
+                            lineNumber: 102,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -182,7 +194,7 @@ const Buy = ()=>{
                                     children: "Add"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                                    lineNumber: 104,
+                                    lineNumber: 110,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -191,34 +203,34 @@ const Buy = ()=>{
                                     children: "Cancel"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                                    lineNumber: 110,
+                                    lineNumber: 116,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                            lineNumber: 103,
+                            lineNumber: 109,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                    lineNumber: 79,
+                    lineNumber: 85,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-                lineNumber: 78,
+                lineNumber: 84,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(frontend)/buy/page.jsx",
-        lineNumber: 58,
+        lineNumber: 64,
         columnNumber: 5
     }, this);
 };
-_s(Buy, "cW+XLWKlqW36mnfhSXrg8K5/7Wc=");
+_s(Buy, "kMPeTIUx+b8J8kDAiYWjIhnUJb8=");
 _c = Buy;
 const __TURBOPACK__default__export__ = Buy;
 var _c;

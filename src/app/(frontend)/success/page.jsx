@@ -77,7 +77,7 @@ export default function Success() {
             </div>
 
             <button
-              onClick={() => router.push("/sample")}
+              onClick={() => router.push("/buy")}
               className="mt-6 bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300"
             >
               Go to Home

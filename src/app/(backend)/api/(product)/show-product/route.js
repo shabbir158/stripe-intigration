@@ -4,8 +4,12 @@ import addProduct from "@/app/server/models/addProduct";
 
 export const GET = async (req) => {
   try {
-    await addProduct();
+    await dbConnect();
     const products = await addProduct.find();
+
+    // products.forEach((product) => {
+    //   console.log("title is:", product.title);
+    // });
     if (!products) {
       return NextResponse.json({
         message: "Products are not availabe ",

@@ -3,6 +3,7 @@ import Checkout from "@/components/Checkout";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import Loader from "../(loader)/page";
 
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
   throw new Error("NEXT_PUBLIC_STRIPE_PUBLIC_KEY is not defined");
@@ -25,7 +26,7 @@ const Home = () => {
     };
     fetchRecord();
   }, [id]);
-  console.log("amount is ", amount);
+
   const [secret, setSecret] = useState("");
   const [message, setMessage] = useState("");
 
@@ -61,7 +62,7 @@ const Home = () => {
   }, [amount]);
 
   if (loading) {
-    return <h1 className="text-center text-lg mt-10">Loading...</h1>;
+    return <Loader />;
   }
 
   if (!amount) {

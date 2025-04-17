@@ -1,9 +1,9 @@
 {
   "/(frontend)/buy/page": "app/(frontend)/buy/page.js",
-  "/(frontend)/sample/page": "app/(frontend)/sample/page.js",
-  "/(backend)/api/(stripe-code)/create-payment-intent/route": "app/(backend)/api/(stripe-code)/create-payment-intent/route.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/(backend)/api/(product)/add-product/route": "app/(backend)/api/(product)/add-product/route.js",
   "/(backend)/api/(product)/show-product/route": "app/(backend)/api/(product)/show-product/route.js",
-  "/(backend)/api/(product)/show-single/route": "app/(backend)/api/(product)/show-single/route.js"
+  "/(frontend)/sample/page": "app/(frontend)/sample/page.js",
+  "/(backend)/api/(product)/show-single/route": "app/(backend)/api/(product)/show-single/route.js",
+  "/(backend)/api/(stripe-code)/(checkout)/create-payment-intent/route": "app/(backend)/api/(stripe-code)/(checkout)/create-payment-intent/route.js",
+  "/page": "app/page.js"
 }
